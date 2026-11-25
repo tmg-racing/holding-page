@@ -1,0 +1,118 @@
+/* Página temporária da TMG Racing, no ar até o site novo. */
+
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("/fonts/barlow-condensed-800-italic.woff2") format("woff2");
+  font-weight: 800;
+  font-style: italic;
+  /* Pré-carregada no HTML. "optional" evita o salto de layout se ela chegar tarde no título gigante. */
+  font-display: optional;
+}
+
+@font-face {
+  font-family: "Barlow";
+  src: url("/fonts/barlow-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Barlow";
+  src: url("/fonts/barlow-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --asfalto: #16181c;
+  --giz: #f4f5f6;
+  --pista: #a4aab3;
+  --vermelho: #ee1c25;
+  --ciano: #00aeef;
+  --margem: clamp(1.25rem, 6vw, 6rem);
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--asfalto);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--asfalto);
+  color: var(--giz);
+  font: 400 1.0625rem/1.55 "Barlow", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.topo {
+  padding: clamp(1.5rem, 4vw, 3rem) var(--margem) 0;
+}
+
+.topo img {
+  display: block;
+  width: clamp(132px, 16vw, 200px);
+  height: auto;
+}
+
+.conteudo {
+  align-self: center;
+  max-width: 68rem;
+  padding: clamp(3rem, 9vh, 6rem) var(--margem);
+}
+
+h1 {
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  font: italic 800 clamp(4.25rem, 9vw + 1.5rem, 9.5rem) / 0.92 "Barlow Condensed", "Arial Narrow", sans-serif;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+p {
+  max-width: 36rem;
+  margin: 0 0 0.75rem;
+  color: var(--pista);
+}
+
+.lede {
+  margin-bottom: 1.75rem;
+  color: var(--giz);
+  font-weight: 500;
+}
+
+a {
+  color: var(--giz);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--vermelho);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.22em;
+}
+
+a:hover {
+  text-decoration-color: var(--giz);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--ciano);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* A zebra da pista fecha a página. */
+.zebra {
+  height: clamp(14px, 1.8vw, 22px);
+  background: repeating-linear-gradient(115deg, var(--vermelho) 0 28px, #fff 28px 56px);
+}
